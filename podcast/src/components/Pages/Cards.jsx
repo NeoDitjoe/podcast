@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from '@mui/material';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
-import './stylesheet.css';
 
 export default function Cards(props) {
 

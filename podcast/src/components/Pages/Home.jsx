@@ -4,7 +4,7 @@ import React from 'react'
 function Home() {
   return (
     <div className="home"> 
-      <h2>jnjkbhbhjb</h2>
+      <h2>jnjljbnnkkkkkkbhbhjb</h2>
     </div>
   )
 }
