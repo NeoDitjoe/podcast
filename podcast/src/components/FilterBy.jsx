@@ -13,7 +13,7 @@ const FilterBy = ({ onFilter }) => {
   };
 
   return (
-    <div>
+    <div className='ona'>
       <label htmlFor="filterValue">Filter by:</label>
       <input
         type="text"
@@ -25,7 +25,7 @@ const FilterBy = ({ onFilter }) => {
   );
 };
 FilterBy.propTypes = {
-    onSort: PropTypes.func.isRequired,
-  };
+  onFilter: PropTypes.func.isRequired,
+};
   
 export default FilterBy;

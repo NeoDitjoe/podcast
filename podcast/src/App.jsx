@@ -18,20 +18,23 @@ function App() {
   useEffect(() => {
     fetch('https://podcast-api.netlify.app/shows')
       .then((response) => response.json())
-      .then((data) => {
-        const items = data.map((item) => (
-          <Cards
-            key={item.id}
-            titles={item.title}
-            images={item.image}
-            genres={item.genres}
-            seasons={item.seasons}
-            updated={item.updated}
-            descriptions={item.description}
-          />
-        ));
-        setPreview(items);
-      });
+      .then( data => {
+        const items = data.map((item) => {
+          return(
+            <Cards
+              key={item.id}
+              titles={item.title}
+              images={item.image}
+              genres={item.genres}
+              seasons={item.seasons}
+              updated={item.updated}
+              descriptions={item.description}
+        />
+          )
+        })
+        setPreview(items)
+      })
+   
   }, []);
 
   const handleSort = (sortOrder) => {
@@ -56,18 +59,19 @@ function App() {
     <>
       <div className='App'>
         <Navbar />
-        <div className="h-auto min-w-[680px] bg-primary flex justify-center items-center">
-          <Routes>
-            <Route path='./components/AboutUs.jsx' element={<AboutUs />} />
-            <Route path='./components/Cards.jsx' element={<Cards />} />
-            <Route path='./components/Contacts.jsx' element={<Contacts />} />
-          </Routes>
-        </div>
-        <Home />
-
+        {/* {preview} */}
+       <div className=''>
         <SortBy items={preview} onSort={handleSort} />
-        <FilterBy items={preview} onFilter={handleFilter} />
-
+          <FilterBy items={preview} onFilter={handleFilter} />
+          <div className="h-auto min-w-[680px] bg-primary flex justify-center items-center">
+            <Routes>
+              <Route path='./components/AboutUs.jsx' element={<AboutUs />} />
+              <Route path='./components/Cards.jsx' element={<Cards/>}/>
+              <Route path='./components/Contacts.jsx' element={<Contacts />} />
+            </Routes>
+          </div>
+          <Home />
+        </div>
       </div>
 
       <Grid container spacing={5}>

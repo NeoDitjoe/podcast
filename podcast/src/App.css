@@ -15,9 +15,9 @@
 
     --gradient: linear-fgradient(to right, var(--flourescent-blue), var(--blue-ryb));
     --ff-josefin: 'Josefin sans', sans-serif;
-    max-width: max-content;
+    /* max-width: max-content; */
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 2rem; */
     text-align: center;
 }
 .active{
@@ -87,4 +87,20 @@ nav ul li a:not(.active):hover{
 .App{
     height: 100%;
     width: 100%;
+}
+
+.ona input{
+    border-radius: 5px;
+    width: 250px;
+    height: 40px;
+}
+
+.ram select{
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+}
+
+.main{
+    overflow-y:scroll ;
 }
