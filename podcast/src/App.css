@@ -65,7 +65,7 @@ nav ul li a:not(.active):hover{
 
 .home {
     margin-bottom: 50%;
-    background: hsl(252, 100%, 12%);
+    background: hsl(257, 41%, 97%);
     color: white;
     font-family: sans-serif;
 }
@@ -114,6 +114,7 @@ nav ul li a:not(.active):hover{
     width: 20%;
 }
 nav .menu{
+    display: flex;
 position: absolute;
 top: 0.75rem;
 right: 0.5rem;
@@ -129,4 +130,13 @@ nav .menu span{
     background-color: white;
     border-radius: 0.2rem;
 
+}
+
+
+
+
+
+
+.happySeasons{
+    width: 20%;
 }

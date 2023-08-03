@@ -16,7 +16,7 @@ function Seasons(props) {
             return(
               <>
                 <p>{item.title}</p>
-                <img src={item.image}></img>
+                <img className='happySeasons'  src={item.image}></img>
               </>
             )
           })

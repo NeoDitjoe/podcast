@@ -97,12 +97,16 @@ function App() {
        <div className='filter-sort'>
         <SortBy items={preview} onSort={handleSort} />
           <FilterBy items={preview} onFilter={handleFilter} />
-          <div className="h-auto min-w-[680px] bg-primary flex justify-center items-center">
+          <div className="Routes">
+           {/* h-auto min-w-[680px] bg-primary flex justify-center items-center  */}
             <Routes>
+              <Route path='/' element={<Home />}></Route>
               <Route path='./components/Pages/AboutUs.jsx' element={<AboutUs />} />
-              <Route path='./components/Cards.jsx' element={<items/>}/>
+              <Route path='./components/Cards.jsx' element={<Cards/>}/>
               <Route path='./components/Pages/Blog.jsx' element={<Blog/>} />
               <Route path='./components/Pages/Contacts.jsx' element={<Contacts />} />
+
+
               <Route path='./components/Audio.jsx' element={<Audio />} />
               <Route path='./components/Login.jsx' element={<SignIn />} />
             </Routes>
@@ -121,7 +125,7 @@ function App() {
 
 export default App;
 
-//THE REAL CODE ENDS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+//THE REAL CODE ENDS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
