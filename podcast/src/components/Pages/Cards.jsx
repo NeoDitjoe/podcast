@@ -10,14 +10,26 @@ export default function Cards(props) {
     const toggleReadMore = () => {
         setShowFullDescription(!showAllDescription);
     };
-
+//NEW CODE ADDED FOR EPISODES
     return (
-        <Grid item xs={12} sm={4} md={4} lg={3} className="card-items">
+        <Grid item xs={12} sm={4} md={4} lg={3} className="card-items" onClick={props.click}>
             <img src={props.images} className='img' alt={props.titles} />
             <h3>{props.id}</h3>
             <h2>{props.titles}</h2>
             <h4>Season {props.seasons}</h4>
+            
             <h4>Updated on: {new Date(props.updated).toLocaleDateString()}</h4>
+
+  {/* Display the episodes
+  <h5>Episodes:</h5>
+      <ul>
+        {episodes.map((episode) => (
+          <li key={episode.id}>
+            <strong>{episode.title}</strong>
+            <p>{episode.description}</p>
+          </li>
+        ))}
+      </ul> */}
 
             {showAllDescription ? (
                 <h5 className='text-color'>{props.descriptions}</h5>

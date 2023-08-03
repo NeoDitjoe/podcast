@@ -91,7 +91,7 @@ nav ul li a:not(.active):hover{
     width: 100%;
 }
 
-.filer-value input{
+#filerCtriteria input{
     border-radius: 5px;
     width: 250px;
     height: 40px;
@@ -107,6 +107,7 @@ nav ul li a:not(.active):hover{
 .filter-sort{
     font-family: sans-serif;
     margin-left: 5px;
+    padding: 10px;
 }
 
 .nav-logo{
@@ -127,5 +128,5 @@ nav .menu span{
     width: 100%;
     background-color: white;
     border-radius: 0.2rem;
-    
+
 }
