@@ -35,6 +35,7 @@ nav {
     background-color: #0f172a;
     position: sticky;
     top: 0;
+    font-family:sans-serif
 }
 nav .title{
    font-size: 1.5rem;
@@ -58,7 +59,7 @@ nav ul li{
     border-radius: 0.5rem;
  }
 nav ul li a:not(.active):hover{
-    background-color:#a5a6a6;
+    background-color:#a5a6a626;
 
 }
 
@@ -66,17 +67,18 @@ nav ul li a:not(.active):hover{
     margin-bottom: 50%;
     background: hsl(252, 100%, 12%);
     color: white;
+    font-family: sans-serif;
 }
 
 .img {
-    width: 40%;
+    width: 50%;
     border-radius: 10px;
 }
 
 .card-items {
     background: var(--dark-violet);
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:sans-serif
 }
 
 .page-footer {
@@ -89,18 +91,41 @@ nav ul li a:not(.active):hover{
     width: 100%;
 }
 
-.ona input{
+.filer-value input{
     border-radius: 5px;
     width: 250px;
     height: 40px;
+    
 }
 
-.ram select{
+.sort-order select{
     border-radius: 5px;
     width: 200px;
     height: 40px;
+    
+}
+.filter-sort{
+    font-family: sans-serif;
+    margin-left: 5px;
 }
 
-.main{
-    overflow-y:scroll ;
+.nav-logo{
+    width: 20%;
+}
+nav .menu{
+position: absolute;
+top: 0.75rem;
+right: 0.5rem;
+flex-direction: column;
+justify-content: space-between;
+width: 2.25rem;
+height: 2rem;
+
+}
+nav .menu span{
+    height: 0.4rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.2rem;
+    
 }

@@ -12,7 +12,7 @@ const SortBy = ({ onSort }) => {
   };
 
   return (
-    <div className='ram'>
+    <div className='sort-order'>
       <label htmlFor="sortOrder">Sort by:</label>
       <select
         id="sortOrder"
