@@ -139,7 +139,8 @@ nav .menu span {
 /********** SEASONS AND EPISODES STYLE  ************/
 
 .happySeasons {
-    width: 20%;
+    width: 10%;
+    border-radius: 5px;
 }
 
 /***************** FORM AND FOOTER STYLE *****************/
