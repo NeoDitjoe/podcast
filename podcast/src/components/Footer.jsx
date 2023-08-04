@@ -32,13 +32,13 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer-content">
+      {/* <div className="footer-content">
         <p>Contact Us:</p>
         <ul>
           <li>Email: info@example.com</li>
           <li>Phone: +1 (123) 456-7890</li>
         </ul>
-      </div>
+      </div> */}
       <div className="footer-form">
         <div className="form-container">
           <form className="form" onSubmit={handleSubmit}>

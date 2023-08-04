@@ -1,9 +1,4 @@
-/* .App{
-    background-color: hsl(252, 100%, 12%);
-    height: 100vh;
-    width: 100%;
-} */
-
+/* ROOT AND BODY STYLE */
 :root {
     /* Colors */
     --dark-violet: hsl(252, 100%, 12%);
@@ -15,19 +10,17 @@
 
     --gradient: linear-fgradient(to right, var(--flourescent-blue), var(--blue-ryb));
     --ff-josefin: 'Josefin sans', sans-serif;
-    /* max-width: max-content; */
     margin: 0 auto;
-    /* padding: 2rem; */
     text-align: center;
 }
-.active{
-    background-color: purple;
-}
+
+
 body {
     background-color: hsl(252, 100%, 12%);
     color: white;
 }
 
+/************ NAVBAR STYLE *********************/
 nav {
     display: flex;
     justify-content: space-between;
@@ -35,46 +28,76 @@ nav {
     background-color: #0f172a;
     position: sticky;
     top: 0;
-    font-family:sans-serif;
- 
+    font-family: sans-serif;
+
 }
-nav .title{
-   font-size: 1.5rem;
-   margin: 1rem;
-   font-weight: bold;
-   text-decoration: none;
-   color: white; 
+
+nav .title {
+    font-size: 1.5rem;
+    margin: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
 }
-nav ul{
+
+nav ul {
     display: flex;
 }
-nav ul li{
+
+nav ul li {
     list-style: none;
 }
- nav ul li a{
+
+nav ul li a {
     display: block;
     text-decoration: none;
     color: white;
     padding: 0.5rem;
     margin: 0.0rem;
     border-radius: 0.5rem;
- }
-nav ul li a:not(.active):hover{
-    background-color:#a5a6a626;
+}
+
+nav ul li a:not(.active):hover {
+    background-color: #a5a6a626;
 
 }
 
+.nav-logo {
+    width: 20%;
+}
+
+nav .menu {
+    display: flex;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 2rem;
+
+}
+
+nav .menu span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.2rem;
+
+}
+
+/**************** HOME ********************/
 .homeImg {
     margin: 15px;
     margin-bottom: 30px;
     color: white;
     font-family: sans-serif;
     background-size: cover;
-     height: 700px;
-     /* margin: 10px; */
-     border-radius: 20px;
+    height: 700px;
+    margin: 10px; 
+    border-radius: 20px;
 }
-
+/* FOR CARDS AND GRID */
 .img {
     width: 50%;
     border-radius: 10px;
@@ -83,70 +106,49 @@ nav ul li a:not(.active):hover{
 .card-items {
     background: var(--dark-violet);
     color: white;
-    font-family:sans-serif
+    font-family: sans-serif
 }
 
-.page-footer {
-    background: hsl(252, 100%, 12%);
-    color: white;
-
-}
-.App{
+.App {
     height: 100%;
     width: 100%;
 }
 
-#filerCtriteria input{
+/* FILTER AND SORT STYLE */
+#filerCtriteria input {
     border-radius: 5px;
     width: 250px;
     height: 40px;
-    
+
 }
 
-.sort-order select{
+.sort-order select {
     border-radius: 5px;
     width: 200px;
     height: 40px;
-    
+
 }
-.filter-sort{
+
+.filter-sort {
     font-family: sans-serif;
     margin-left: 5px;
     padding: 10px;
 }
 
-.nav-logo{
-    width: 20%;
-}
-nav .menu{
-    display: flex;
-position: absolute;
-top: 0.75rem;
-right: 0.5rem;
-flex-direction: column;
-justify-content: space-between;
-width: 2.25rem;
-height: 2rem;
 
-}
-nav .menu span{
-    height: 0.4rem;
-    width: 100%;
-    background-color: white;
-    border-radius: 0.2rem;
+/********** SEASONS AND EPISODES STYLE  ************/
 
-}
-
-
-
-
-
-
-.happySeasons{
+.happySeasons {
     width: 20%;
 }
 
-/* FORM STYLE */
+/***************** FORM AND FOOTER STYLE *****************/
+
+.page-footer {
+    background: hsl(252, 26%, 74%);
+    color: white;
+
+}
 * {
     box-sizing: border-box;
 }
@@ -167,7 +169,7 @@ nav .menu span{
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
 }
 
 .form--input {
@@ -186,8 +188,8 @@ nav .menu span{
     border-radius: 5px;
     color: white;
     background-color: #639;
-    border: none;   
-    cursor: pointer; 
+    border: none;
+    cursor: pointer;
 }
 
 .form--marketing {
@@ -196,6 +198,6 @@ nav .menu span{
     align-items: center;
 }
 
-.form--marketing > input {
+.form--marketing>input {
     margin-right: 10px;
 }
