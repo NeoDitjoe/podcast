@@ -75,9 +75,9 @@ export default function Footer() {
                 onChange={handleChange}
                 checked={formData.joinedNewsletter}
               />
-              <label htmlFor="okayToEmail">I want to join the newsletter</label>
+              <label htmlFor="okayToEmail" className="news-letter">I want to join the newsletter</label>
             </div>
-            <button className="form--submit">Sign up</button>
+            <button className="form--submit">Submit</button>
           </form>
         </div>
       </div>

@@ -1,4 +1,4 @@
-/* ROOT AND BODY STYLE */
+/*********** ROOT AND BODY STYLE ************/
 :root {
     /* Colors */
     --dark-violet: hsl(252, 100%, 12%);
@@ -12,9 +12,12 @@
     --ff-josefin: 'Josefin sans', sans-serif;
     margin: 0 auto;
     text-align: center;
+    
 }
 
-
+/* html{
+    overflow: hidden;
+} */
 body {
     background-color: hsl(252, 100%, 12%);
     color: white;
@@ -97,7 +100,7 @@ nav .menu span {
     margin: 10px; 
     border-radius: 20px;
 }
-/* FOR CARDS AND GRID */
+/************ FOR CARDS AND GRID **********/
 .img {
     width: 50%;
     border-radius: 10px;
@@ -106,15 +109,28 @@ nav .menu span {
 .card-items {
     background: var(--dark-violet);
     color: white;
-    font-family: sans-serif
+    font-family: sans-serif;
+    padding: 20px;
 }
 
 .App {
     height: 100%;
     width: 100%;
 }
+.title-control{
+margin-top: 3px;
 
-/* FILTER AND SORT STYLE */
+}
+.season-control{
+padding: 0.2px;
+margin-top: 5px;
+}
+/* .date-control{
+margin: 1px;
+} */
+
+
+/*********** FILTER AND SORT STYLE ************/
 #filerCtriteria input {
     border-radius: 5px;
     width: 250px;
@@ -142,12 +158,26 @@ nav .menu span {
     width: 10%;
     border-radius: 5px;
 }
+/* .episodeStore{
+    display: flexbox;
+} */
+
+/* .itemFile{
+display: grid;
+} */
+/* .audioControl{
+    display: grid;
+} */
+.news-letter{
+  color: #639;  
+}
 
 /***************** FORM AND FOOTER STYLE *****************/
 
 .page-footer {
     background: hsl(252, 26%, 74%);
     color: white;
+    
 
 }
 * {
@@ -161,6 +191,7 @@ nav .menu span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .form {
@@ -201,4 +232,117 @@ nav .menu span {
 
 .form--marketing>input {
     margin-right: 10px;
+}
+
+/* CAROUSEL STYLE
+
+.carousel-container {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  .carousel-item {
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding:
+  }
+  
+  .carousel-item img {
+    max-width: 100;
+    height: 50%;
+  } */
+
+  /* SignIn STYLE */
+  .container {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  /* SEARCH STYLE */
+  .SearchButton {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    width: 200px;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+
+@media (max-width:480px){
+    nav .menu{
+        display: flex;
+    }
+    nav {
+        flex-direction: column;
+        align-items: start;   
+    }
+    nav ul{
+        /* display: none; */
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    .homeImg{
+        height: 200px;
+    }
+    .form-container{
+        height: 505;
+    }
+
+    .nav{
+        width: auto;
+
+    }
+    .nav-logo{
+        width: 50%;
+    }
+    .nav .menu{
+        height: 50%;
+    }
 }
