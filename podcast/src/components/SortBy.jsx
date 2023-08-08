@@ -1,5 +1,5 @@
 // SortBy.jsx
-import  { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const SortBy = ({ onSort }) => {
@@ -21,6 +21,8 @@ const SortBy = ({ onSort }) => {
       >
         <option value="asc">A - Z</option>
         <option value="desc">Z - A</option>
+        <option value="date-asc">Date Ascending</option>
+        <option value="date-desc">Date Descending</option>
       </select>
     </div>
   );
@@ -31,4 +33,3 @@ SortBy.propTypes = {
 };
 
 export default SortBy;
-

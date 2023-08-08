@@ -1,3 +1,5 @@
+/*the Cards component represents a card for a podcast show, allowing users to toggle between a truncated and
+ full description using a "Read More" button. It's designed to display various show details in a visually appealing format. */
 import React from "react";
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -10,8 +12,11 @@ export default function Cards(props) {
     const toggleReadMore = () => {
         setShowFullDescription(!showAllDescription);
     };
+
+    
 //NEW CODE ADDED FOR EPISODES
     return (
+        
         <Grid item xs={12} sm={4} md={4} lg={3} className="card-items" onClick={props.click}>
             <img src={props.images} className='img' alt={props.titles} />
             <h3>{props.id}</h3>
@@ -20,22 +25,12 @@ export default function Cards(props) {
             <h4 className="date-control">Updated on: {new Date(props.updated).toLocaleDateString()}</h4>
            
 
-  {/* Display the episodes
-  <h5>Episodes:</h5>
-      <ul>
-        {episodes.map((episode) => (
-          <li key={episode.id}>
-            <strong>{episode.title}</strong>
-            <p>{episode.description}</p>
-          </li>
-        ))}
-      </ul> */}
-
             {showAllDescription ? (
                 <h5 className='text-color'>{props.descriptions}</h5>
             ) : (
                 <h5 className='text-color'>{props.descriptions.substring(0, 150)}</h5>
             )}
+
 
             <Button variant="outlined" onClick={toggleReadMore}>
                 {showAllDescription ? 'Read Less' : 'Read More'}

@@ -12,7 +12,7 @@
     --ff-josefin: 'Josefin sans', sans-serif;
     margin: 0 auto;
     text-align: center;
-    
+
 }
 
 /* html{
@@ -32,11 +32,11 @@ nav {
     position: sticky;
     top: 0;
     font-family: sans-serif;
-
+   
 }
 
 nav .title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 1rem;
     font-weight: bold;
     text-decoration: none;
@@ -97,9 +97,10 @@ nav .menu span {
     font-family: sans-serif;
     background-size: cover;
     height: 700px;
-    margin: 10px; 
+    margin: 10px;
     border-radius: 20px;
 }
+
 /************ FOR CARDS AND GRID **********/
 .img {
     width: 50%;
@@ -117,14 +118,17 @@ nav .menu span {
     height: 100%;
     width: 100%;
 }
-.title-control{
-margin-top: 3px;
+
+.title-control {
+    margin-top: 3px;
 
 }
-.season-control{
-padding: 0.2px;
-margin-top: 5px;
+
+.season-control {
+    padding: 0.2px;
+    margin-top: 5px;
 }
+
 /* .date-control{
 margin: 1px;
 } */
@@ -149,8 +153,18 @@ margin: 1px;
     font-family: sans-serif;
     margin-left: 5px;
     padding: 10px;
+
 }
 
+.filter-value {
+    height: 40px;
+}
+
+#filterValue {
+    height: 35px;
+    margin: 3px;
+    width: 170px;
+}
 
 /********** SEASONS AND EPISODES STYLE  ************/
 
@@ -158,6 +172,7 @@ margin: 1px;
     width: 10%;
     border-radius: 5px;
 }
+
 /* .episodeStore{
     display: flexbox;
 } */
@@ -168,8 +183,8 @@ display: grid;
 /* .audioControl{
     display: grid;
 } */
-.news-letter{
-  color: #639;  
+.news-letter {
+    color: #639;
 }
 
 /***************** FORM AND FOOTER STYLE *****************/
@@ -177,9 +192,10 @@ display: grid;
 .page-footer {
     background: hsl(252, 26%, 74%);
     color: white;
-    
+
 
 }
+
 * {
     box-sizing: border-box;
 }
@@ -219,7 +235,7 @@ display: grid;
     padding: 10px;
     border-radius: 5px;
     color: white;
-    background-color: #639;
+    background-color: #810f77;
     border: none;
     cursor: pointer;
 }
@@ -247,7 +263,7 @@ display: grid;
     background-color: #f5f5f5;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding:
+    
   }
   
   .carousel-item img {
@@ -255,7 +271,7 @@ display: grid;
     height: 50%;
   } */
 
-  /* SignIn STYLE */
+/* SignIn STYLE
   .container {
     width: 400px;
     margin: auto;
@@ -287,62 +303,87 @@ display: grid;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-  }
-  /* SEARCH STYLE */
-  .SearchButton {
+  } */
+
+
+/********* SEARCH STYLE ***********8*/
+.SearchButton {
     display: flex;
     align-items: center;
     margin-top: 1rem;
-  }
-  
-  .search-input {
+}
+
+.search-input {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     font-size: 16px;
     width: 200px;
-  }
-  
-  .search-button {
-    background-color: #007bff;
+}
+
+.search-button {
+    background-color: #810f77;
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 16px;
-  }
-  
+    height: 36px;
+}
 
-@media (max-width:480px){
-    nav .menu{
+
+@media (max-width:480px) {
+    nav .menu {
         display: flex;
     }
+
     nav {
         flex-direction: column;
-        align-items: start;   
+        align-items: start;
     }
-    nav ul{
+
+    nav ul {
         /* display: none; */
         flex-direction: column;
         width: 100%;
         margin-bottom: 0.25rem;
     }
-    .homeImg{
+
+    .homeImg {
         height: 200px;
     }
-    .form-container{
+
+    .form-container {
         height: 505;
     }
 
-    .nav{
+    .nav {
         width: auto;
 
     }
-    .nav-logo{
+
+    .nav-logo {
         width: 50%;
     }
-    .nav .menu{
+
+    .nav .menu {
         height: 50%;
+    }
+
+    .search-input {
+        width: 80px;
+        height: 30px;
+    }
+
+    .search-button {
+        height: 30px;
+        width: 70px;
+        
+    }
+
+    .SearchButton {
+        display: flex;
+        
     }
 }

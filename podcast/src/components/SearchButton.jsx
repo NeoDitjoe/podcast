@@ -1,5 +1,5 @@
-import React from 'react';
-import './SearchButton.css'; // Import the corresponding CSS file
+
+import '../App.css';
 
 const SearchButton = () => {
   return (
