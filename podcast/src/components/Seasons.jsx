@@ -6,7 +6,7 @@ function Seasons(props) {
   const [seasonsStore, setSeasonStore] = useState(null)
   const [EpisodesStore, setEpisodesStore] = useState(null)
   const [episodesPhase, setEpisodesPhase] = useState('seasonPhase')
-  const [historyStore, setHistoryStore] = useState(null)
+
 
   useEffect(() => {
     if(props.id){
@@ -46,19 +46,6 @@ function Seasons(props) {
     console.log(data)
     }
 }
-  async function history(title, audio) {
-    const { data, error } = await Supabase
-        .from('history')
-        .insert({title, audio});
-    
-    if (error) {
-        console.error('Error adding shows', error);
-        return null;
-    }
-    if (data) {
-    console.log(data)
-    }
-}
 
   function m(epi) {
     // if (epi){
@@ -67,9 +54,10 @@ function Seasons(props) {
           <> 
             <p>{items.title}</p>
             <p>{items.description}</p>
-            <audio controls className='audioControl' onPlay={() => history(items.title, items.file)}>
+            {/* <audio controls className='audioControl' onPlay={() => history(items.title, items.file)}>
               <source src={items.file} className='itemFile'></source>
-            </audio>
+            </audio> */}
+            <button id={items.title} value={items.file} onClick={props.history}>Play</button>
             <button onClick={()=> addShow(items.title, items.episode, items.file)}>Add To Favourites</button>
           </>
         )
@@ -80,35 +68,11 @@ function Seasons(props) {
    
   }
 
-  useEffect(() => {
-    const fetcchSmoothies = async () => {
-      const { data, error } = await Supabase
-      .from('history')
-      .select()
-        if (error) {
-          setHistoryStore(null)
-          console.log(error)
-        }
-    if (data) {
-      setHistoryStore(data)
-    }
-    }
-    fetcchSmoothies()
-    }, [])
-
   return (
     <>
-        {/* {historyStore && (
-          <div classname="history">
-            {historyStore.map(history => (
-            <>
-              <p>{history.title}</p>
-              <p>{history.description}</p>
-              <p>{history.episode}</p>
-              </>
-            ))}
-            </div>
-        )} */}
+        
+
+    
      
       <div className='episodeStore'>
         {episodesPhase === 'episodePhase' && <>

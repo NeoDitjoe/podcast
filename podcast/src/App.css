@@ -150,6 +150,15 @@ margin: 1px;
 
 }
 
+.audioControl{
+    width: 500px;
+    height: 100px;
+    background-color: gray;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
 .filter-sort {
     font-family: sans-serif;
     margin-left: 5px;

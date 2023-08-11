@@ -25,6 +25,10 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [idStore, setIdStore] = useState(null);
   const [throwSignUp, setThrowSignUp] = useState('signUpPhase')
+  const [playableAudio, setPlayableAudio] = useState({
+   AudioTitle: null,
+   AudioFile: null
+  })
 
   function seasonIdFunction(id) {
     setIdStore(id)
@@ -136,16 +140,81 @@ and provides a user interface with various components to interact with the data 
   }
   }
 
+  const [historyStore, setHistoryStore] = useState(null)
+  useEffect(() => {
+    const fetchHistoty = async () => {
+      const { data, error } = await Supabase
+      .from('history')
+      .select()
+        if (error) {
+          setHistoryStore(null)
+          console.log(error)
+        }
+    if (data) {
+      setHistoryStore(data)
+    }
+    }
+    fetchHistoty()
+    }, [])
+
+  const [favs, setfavs] = useState(null)
+  useEffect(() => {
+    const fetchFavs = async () => {
+      const { data, error } = await Supabase
+      .from('favourites')
+      .select()
+        if (error) {
+          setfavs(null)
+          console.log(error)
+        }
+    if (data) {
+      setfavs(data)
+    }
+    }
+    fetchFavs()
+    }, [])
+
+    async function history(event) {
+      const title = event.target.id
+      const audio = event.target.value
+    
+      const { data, error } = await Supabase
+          .from('history')
+          .insert({title, audio});
+      
+      if (error) {
+          console.error('Error adding shows', error);
+          return null;
+      }
+      if (data) {
+      console.log(data)
+      }
+
+      setPlayableAudio(prev => ({
+        ...prev,
+        AudioTitle: title
+      }))
+      setPlayableAudio(prev => ({
+        ...prev,
+        AudioFile: audio
+      }))
+      console.log("playinng")
+  }
+
+ console.log(playableAudio.AudioTitle)
+
 
   return ( /*If throwSignUp is 'signUpPhase', the Supaclient component is rendered.
   If throwSignUp is 'PreviewPhase', the main app content is rendered */
     <> 
+
       {throwSignUp === 'signUpPhase' && <Supaclient />} 
       {throwSignUp !== 'signUpPhase' &&  <Navbar /> }
       {throwSignUp === 'seasonPhase' &&   <>
       <button onClick={HandleBackButton}>BackToPreview</button>
         <Seasons 
             id={idStore}
+            history={history}
           />
           </>
           }
@@ -155,6 +224,8 @@ and provides a user interface with various components to interact with the data 
             <div className='filter-sort'>
               <SortBy items={preview} onSort={handleSort} />
               <FilterBy items={preview} onFilter={handleFilter} />
+              <button onClick={()=> setThrowSignUp('HistoryPhase')}>History</button>
+              <button onClick={()=> setThrowSignUp('FavouritesPahse')}>Favourites</button>
                {/* Display loading state */}
   {loading ? (
             <h1 className="loading">Loading...</h1> // This code uses a conditional rendering approach to display a loading message
@@ -205,6 +276,7 @@ and provides a user interface with various components to interact with the data 
           Inside the Grid, {preview} is rendered, which implies rendering all JSX components stored in the preview state array. */}
           <Grid container spacing={5}>
           {/* {preview} */}
+
             {filteredPreview.length > 0 ? sortedPreview : preview}
            
           </Grid>
@@ -212,6 +284,45 @@ and provides a user interface with various components to interact with the data 
         </>
         //The footer component is then rendered
       }
+       {(historyStore && throwSignUp === 'HistoryPhase') && (
+     
+     <div className="history">
+        <button onClick={()=> setThrowSignUp('PreviewPhase')}>BackToPreview</button>
+        <h3>History</h3>
+       {historyStore.map(history => (
+       <>
+         <p>{history.title}</p>
+
+         <audio controls>
+           <source src={history.audio}/>
+         </audio>
+         </>
+       ))}
+       </div>
+   )}
+     {(favs && throwSignUp === 'FavouritesPahse') && (
+     <div className="favs">
+       <button onClick={()=> setThrowSignUp('PreviewPhase')}>BackToPreview</button>
+        <h3>favourites</h3>
+       {favs.map(favs => (
+       <>
+         <p>{favs.EpiTitle}</p>
+
+         <audio controls>
+           <source src={favs.EpiFile}/>
+         </audio>
+         </>
+       ))}
+       </div>
+   )}
+
+    { (playableAudio.AudioTitle && throwSignUp !== 'signUpPhase') &&
+         <div className='audioControl'>
+        <p>{playableAudio.AudioTitle}</p>
+        <audio src={playableAudio.AudioFile} controls autoPlay />
+        <button onClick={()=> setPlayableAudio(prev => ({ ...prev, AudioTitle: null,AudioFile:null}))} >Close</button>
+        </div>
+        }
     </>
   );
 }
