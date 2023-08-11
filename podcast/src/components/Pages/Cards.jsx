@@ -28,7 +28,7 @@ export default function Cards(props) {
             {showAllDescription ? (
                 <h5 className='text-color'>{props.descriptions}</h5>
             ) : (
-                <h5 className='text-color'>{props.descriptions.substring(0, 150)}</h5>
+                <h5 className='text-color'>{props.descriptions.substring(0, 70)}</h5>
             )}
 
 

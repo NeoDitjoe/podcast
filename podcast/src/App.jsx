@@ -28,6 +28,7 @@ function App() {
 
   function seasonIdFunction(id) {
     setIdStore(id)
+    setThrowSignUp(`seasonPhase`)
   }
   // SUPABASE 
   //Sets up event listeners using the Supabase client's onAuthStateChange to track user authentication status.
@@ -129,18 +130,28 @@ and provides a user interface with various components to interact with the data 
   };
 
 
+  function HandleBackButton () {
+  if(throwSignUp === 'seasonPhase'){
+    setThrowSignUp('PreviewPhase')
+  }
+  }
+
+
   return ( /*If throwSignUp is 'signUpPhase', the Supaclient component is rendered.
   If throwSignUp is 'PreviewPhase', the main app content is rendered */
     <> 
       {throwSignUp === 'signUpPhase' && <Supaclient />} 
-      {throwSignUp === 'PreviewPhase' &&
-        <>
-          <Seasons //this code renders the Seasons component, Navbar and a div and passes the idStore state as a prop named id.
+      {throwSignUp !== 'signUpPhase' &&  <Navbar /> }
+      {throwSignUp === 'seasonPhase' &&   <>
+      <button onClick={HandleBackButton}>BackToPreview</button>
+        <Seasons 
             id={idStore}
           />
-
+          </>
+          }
+      {throwSignUp === 'PreviewPhase' &&
+        <>
           <div className='App'> 
-            <Navbar /> 
             <div className='filter-sort'>
               <SortBy items={preview} onSort={handleSort} />
               <FilterBy items={preview} onFilter={handleFilter} />
@@ -168,16 +179,16 @@ and provides a user interface with various components to interact with the data 
           </div>
           
           
-{/* this code segment sets up a carousel of podcast show previews using the Slider component. 
-The content of the carousel is determined based on whether there are filtered previews or not.
- If filtered previews exist, they are shown; otherwise, sorted previews are displayed in the carousel.
-  Each preview item is wrapped in a div with appropriate styling for the carousel effect.*/ }
-          <div className='carousel-container'>
+          {/* this code segment sets up a carousel of podcast show previews using the Slider component. 
+          The content of the carousel is determined based on whether there are filtered previews or not.
+          If filtered previews exist, they are shown; otherwise, sorted previews are displayed in the carousel.
+            Each preview item is wrapped in a div with appropriate styling for the carousel effect.*/ }
+            <div className='carousel-container'>
             <h2>Possible shows you might be interested in </h2>
             <br></br>
             <Slider {...sliderSettings}>
-              {filteredPreview.length > 0
-                ? filteredPreview.map((item) => (
+              {preview.length > 0
+                ? preview.map((item) => (
                   <div key={item.key} className='carousel-item'>
                     {item}
                   </div>
@@ -190,11 +201,11 @@ The content of the carousel is determined based on whether there are filtered pr
             </Slider>
           </div>
           
-{/*This code renders a Grid component with the specified spacing of 5 units.
-Inside the Grid, {preview} is rendered, which implies rendering all JSX components stored in the preview state array. */}
+          {/*This code renders a Grid component with the specified spacing of 5 units.
+          Inside the Grid, {preview} is rendered, which implies rendering all JSX components stored in the preview state array. */}
           <Grid container spacing={5}>
-          {preview}
-            {filteredPreview.length > 0 ? filteredPreview : sortedPreview}
+          {/* {preview} */}
+            {filteredPreview.length > 0 ? sortedPreview : preview}
            
           </Grid>
           <Footer /> 
