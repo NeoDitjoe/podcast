@@ -308,6 +308,7 @@ nav .menu {
     display: flex;
     align-items: center;
     margin-top: 1rem;
+    
 }
 
 .search-input {
@@ -316,12 +317,13 @@ nav .menu {
     border-radius: 4px 0 0 4px;
     font-size: 16px;
     width: 80%;
+    
 }
 /* .searchInput{
     width:30%;
     height: 70%;
 } */
-/* .search-button {
+.search-button {
     background-color: #810f77;
     color: white;
     border: none;
@@ -329,9 +331,9 @@ nav .menu {
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 16px;
-    height: 36px;
+ 
     width: 30%;
-} */
+}
 
 
 @media (max-width:480px) {

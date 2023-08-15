@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import '../App.css';
 
@@ -15,6 +16,7 @@ import '../App.css';
 {/* <FilterBy items={preview} onFilter={handleFilter} /> */}
 
 import { useState } from 'react';
+
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
   const handleInputChange = (event) => {
@@ -24,6 +26,8 @@ function SearchBar({ onSearch }) {
     onSearch(searchTerm);
   };
   return (
+    
+    
     <div className="search-bar">
       <input className='searchInput'
         type="text"
@@ -34,7 +38,11 @@ function SearchBar({ onSearch }) {
       <button className="search-button" onClick={handleSearch}>
         Search
       </button>
+      
     </div>
+    
+
   );
+  
 }
 export default SearchBar;
