@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /*the Cards component represents a card for a podcast show, allowing users to toggle between a truncated and
  full description using a "Read More" button. It's designed to display various show details in a visually appealing format. */
 import React from "react";
@@ -17,11 +18,12 @@ export default function Cards(props) {
 //NEW CODE ADDED FOR EPISODES
     return (
         
-        <Grid item xs={12} sm={4} md={4} lg={3} className="card-items" onClick={props.click}>
-            <img src={props.images} className='img' alt={props.titles} />
+        <Grid item xs={12} sm={4} md={4} lg={3} className="card-items" >
+            <img src={props.images} className='img' alt={props.titles} onClick={props.click} />
             <h3>{props.id}</h3>
             <h2 className="title-control">{props.titles}</h2>
             <h4 className="season-control">Season {props.seasons}</h4>
+            <h4 className="genre">{props.genres}</h4>
             <h4 className="date-control">Updated on: {new Date(props.updated).toLocaleDateString()}</h4>
            
 

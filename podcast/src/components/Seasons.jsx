@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import { Supabase } from './SupabaseClient'
 
@@ -9,6 +10,7 @@ function Seasons(props) {
 
 
   useEffect(() => {
+    // eslint-disable-next-line react/prop-types
     if(props.id){
       fetch(`https://podcast-api.netlify.app/id/${props.id}`)
         .then(res => res.json())
@@ -31,6 +33,7 @@ function Seasons(props) {
 
         })
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps, react/prop-types
   }, [props.id])
 
   async function addShow(EpiTitle, EpiNum, EpiFile) {

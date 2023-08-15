@@ -15,9 +15,7 @@
 
 }
 
-/* html{
-    overflow: hidden;
-} */
+
 body {
     background-color: hsl(252, 100%, 12%);
     color: white;
@@ -31,8 +29,9 @@ nav {
     background-color: #0f172a;
     position: sticky;
     top: 0;
+    z-index: 1;
     font-family: sans-serif;
-   
+    /* overflow-x: scroll; */
 }
 
 nav .title {
@@ -51,23 +50,11 @@ nav ul li {
     list-style: none;
 }
 
-nav ul li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem;
-    margin: 0.0rem;
-    border-radius: 0.5rem;
+.nav-nav {
+    display: flex;
+    flex-direction: row;
 }
 
-nav ul li a:not(.active):hover {
-    background-color: #a5a6a626;
-
-}
-
-.nav-logo {
-    width: 20%;
-}
 
 nav .menu {
     display: flex;
@@ -81,13 +68,13 @@ nav .menu {
 
 }
 
-nav .menu span {
+/* nav .menu span {
     height: 0.4rem;
     width: 100%;
     background-color: white;
     border-radius: 0.2rem;
 
-}
+} */
 
 /**************** HOME ********************/
 /* .homeImg {
@@ -99,12 +86,14 @@ nav .menu span {
     height: 700px;
     margin: 10px;
     border-radius: 20px;
-} */
+}  */
 
 /************ FOR CARDS AND GRID **********/
 .img {
     width: 50%;
     border-radius: 10px;
+    /* position: relative;
+    left: 65px; */
 
 }
 
@@ -114,11 +103,6 @@ nav .menu span {
     font-family: sans-serif;
     padding: 20px;
 }
-
-/* .App {
-    height: 100%;
-    width: 100%;
-} */
 
 .title-control {
     margin-top: 3px;
@@ -130,9 +114,6 @@ nav .menu span {
     margin-top: 5px;
 }
 
-/* .date-control{
-margin: 1px;
-} */
 
 
 /*********** FILTER AND SORT STYLE ************/
@@ -150,7 +131,7 @@ margin: 1px;
 
 }
 
-.audioControl{
+.audioControl {
     width: 500px;
     height: 100px;
     background-color: gray;
@@ -176,6 +157,39 @@ margin: 1px;
     width: 170px;
 }
 
+.historybutton {
+    color: #1976d2;
+    width: 70px;
+    height: 30px;
+    font-family: sans-serif;
+    border-radius: 5px;
+    background-color: transparent;
+    border-color: rgba(25, 118, 210, 0.5);
+    margin-right: 3px;
+    transition-property: background-color, box-shadow, border-color, color;
+}
+
+.Favs {
+    color: #1976d2;
+    width: 80px;
+    height: 30px;
+    font-family: sans-serif;
+    border-radius: 5px;
+    background-color: transparent;
+    border-color: rgba(25, 118, 210, 0.5);
+}
+
+.filter-button {
+    padding: 2px;
+    margin: 2px;
+    background-color: #810f77;
+    cursor: pointer;
+    border-radius: 5px;
+    /* border: white; */
+    border-color: white;
+    height: 30px;
+}
+
 /********** SEASONS AND EPISODES STYLE  ************/
 
 .happySeasons {
@@ -192,9 +206,6 @@ margin: 1px;
 .page-footer {
     background: hsl(252, 26%, 74%);
     color: white;
-
-}
-.container{
 }
 
 * {
@@ -252,27 +263,45 @@ margin: 1px;
 }
 
 
-/* CAROUSEL STYLE
+/*CAROUSEL STYLE*/
 
-  .carousel-item {
+.carousel-item {
     padding: 20px;
     font-family: sans-serif;
     background-color: #f5f5f5;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-  }
-    
-*/
-  .carousel-container {
+    transition: transform 0.2s ease-in-out;
+}
+
+.carousel-img {
+    padding: 3px;
+    border-radius: 25px;
+    width: 70%;
+
+}
+
+.carousel-container {
     margin: 20px auto;
     /* width: 80%; */
-  }
-  .carousel-item img {
+}
+
+.carousel-item img {
     max-width: 100%;
     height: auto;
     align-items: center;
-  } 
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+}
+
 
 /********* SEARCH STYLE ***********8*/
 .SearchButton {
@@ -286,10 +315,13 @@ margin: 1px;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     font-size: 16px;
-    width: 200px;
+    width: 80%;
 }
-
-.search-button {
+/* .searchInput{
+    width:30%;
+    height: 70%;
+} */
+/* .search-button {
     background-color: #810f77;
     color: white;
     border: none;
@@ -298,7 +330,8 @@ margin: 1px;
     cursor: pointer;
     font-size: 16px;
     height: 36px;
-}
+    width: 30%;
+} */
 
 
 @media (max-width:480px) {
@@ -312,15 +345,15 @@ margin: 1px;
     }
 
     nav ul {
-        /* display: none; */
+        display: none;
         flex-direction: column;
         width: 100%;
         margin-bottom: 0.25rem;
     }
 
-    .homeImg {
+    /* .homeImg {
         height: 200px;
-    }
+    } */
 
     .form-container {
         height: 505;
@@ -336,7 +369,7 @@ margin: 1px;
     }
 
     .nav .menu {
-        height: 50%;
+        height: 30%;
     }
 
     .search-input {
@@ -346,7 +379,7 @@ margin: 1px;
 
     .search-button {
         height: 30px;
-        width: 70px;
+        width: 80px;
 
     }
 
@@ -354,4 +387,78 @@ margin: 1px;
         display: flex;
 
     }
+
+    .SearchButton {
+        overflow: hidden;
+    }
+  
+
+}
+
+/* @media (max-width: 480px) {
+     nav .Menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    } 
+  
+    nav .Menu span {
+      width: 25px;
+      height: 3px;
+      background-color: rgb(255, 255, 255);
+      margin: 2px 0;
+    }
+  
+    /* nav {
+      flex-direction: column;
+      align-items: start;
+    } */
+
+/* nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+      list-style: none;
+      padding: 0;
+    }
+  
+    nav ul.open {
+      display: block;
+    }
+  
+    nav ul.open li {
+      margin-bottom: 1rem;
+    }
+
+  .slick-next{
+    margin-right: 30px;
+  } 
+} */
+
+@media(max-width:800px) {
+
+    nav ul li a {
+        font-size: 70%;
+    }
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem;
+    margin: 0.0rem;
+    border-radius: 0.5rem;
+    font-size: 100%;
+
+}
+
+nav ul li a:not(.active):hover {
+    background-color: #a5a6a626;
+
+}
+
+.nav-logo {
+    width: 20%;
 }

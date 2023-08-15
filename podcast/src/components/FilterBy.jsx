@@ -17,7 +17,7 @@ const FilterBy = ({ onFilter }) => {
 
   return (
     <div className='filer-value'>
-      <label htmlFor="filterValue">Filter by:</label>
+      <label htmlFor="filterValue">Search</label>
       <input
         type="text"
         id="filterValue"
