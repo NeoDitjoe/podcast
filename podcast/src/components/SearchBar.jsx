@@ -19,15 +19,18 @@ import { useState } from 'react';
 
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
+
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
-  const handleSearch = () => {
+
+ const handleSearch = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
     onSearch(searchTerm);
   };
   return (
     
-    
+    <>
     <div className="search-bar">
       <input className='searchInput'
         type="text"
@@ -38,9 +41,10 @@ function SearchBar({ onSearch }) {
       <button className="search-button" onClick={handleSearch}>
         Search
       </button>
-      
+    
     </div>
     
+</>
 
   );
   

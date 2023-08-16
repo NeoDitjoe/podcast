@@ -15,13 +15,13 @@ export const Navbar = () => {
   };
 
  // Search-bar
- const handleSearch = (searchTerm) => {
-  const filteredData = preview.filter(datamapping =>
-    datamapping.props.titles.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  setPreview(filteredData);
-  setSearching(true);
-};
+//  const handleSearch = (searchTerm) => {
+//   const filteredData = preview.filter(datamapping =>
+//     datamapping.props.titles.toLowerCase().includes(searchTerm.toLowerCase())
+//   );
+//   setPreview(filteredData);
+//   setSearching(true);
+// };
 
 
 const handleGoBackToHomePage = () => {
@@ -43,7 +43,7 @@ const handleGoBackToHomePage = () => {
         <span></span>
         <span></span>
       </div>
-      <SearchBar onSearch={handleSearch} />
+      {/* <SearchBar onSearch={handleSearch} /> */}
       <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <li><NavLink to="./AboutUs.jsx">About Us</NavLink></li>
         <li><NavLink to="./Cards.jsx">Podcasts</NavLink></li>
@@ -52,7 +52,6 @@ const handleGoBackToHomePage = () => {
       </ul>
    
     </nav>
-    
     </>  
   );
 

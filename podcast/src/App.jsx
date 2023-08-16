@@ -133,14 +133,14 @@ function App() {
   //   setSortedPreview(filtered);
   // };
 
-  // Search-bar
-  // const handleSearch = (searchTerm) => {
-  //   const filteredData = preview.filter(datamapping =>
-  //     datamapping.props.titles.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setPreview(filteredData);
-  //   setSearching(true);
-  // };
+ // Search-bar
+  const handleSearch = (searchTerm) => {
+    const filteredData = preview.filter(datamapping =>
+      datamapping.props.titles.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setPreview(filteredData);
+    setSearching(true);
+  };
 
   function HandleBackButton() {
     if (throwSignUp === 'seasonPhase') {
@@ -213,11 +213,11 @@ function App() {
   function handleChange(id) {
     setSelectedGenre(id)
   }
-  // const handleGoBackToHomePage = () => {
-  //   const homepageURL = 'http://localhost:5174/';
-  //   // Navigate to the homepage
-  //   window.location.href = homepageURL;
-  // };
+  const handleGoBackToHomePage = () => {
+    const homepageURL = 'http://localhost:5174/';
+    // Navigate to the homepage
+    window.location.href = homepageURL;
+  };
 
   return ( /*If throwSignUp is 'signUpPhase', the Supaclient component is rendered.
   If throwSignUp is 'PreviewPhase', the main app content is rendered */
@@ -240,7 +240,7 @@ function App() {
             <div className='filter-sort'>
               <SortBy items={preview} onSort={handleSort} />
               {/* <FilterBy items={preview} onFilter={handleFilter} /> */}
-              {/* <SearchBar onSearch={handleSearch} /> */}
+               <SearchBar onSearch={handleSearch} /> 
               <div className="Card-Box">
                 <h3>Filter by Genre:</h3>
                 {Object.entries(genreMapping).map(([genreId, genreTitle]) => (
