@@ -5,10 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Cards from './components/Cards';
 import Grid from '@mui/material/Grid';
 import { Navbar } from './components/Navbar';
-// import { Route, Routes } from 'react-router-dom';
 import Home from './components/Pages/Home';
-// import AboutUs from './components/Pages/AboutUs';
-// import Blog from './components/Pages/Blog'
 import SortBy from './components/SortBy';
 import SearchBar from './components/SearchBar';
 import Seasons from './components/Seasons';
@@ -19,6 +16,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../src/App.css';
 
+//This object genreMapping holds a mapping between genre IDs and their corresponding names.
 const genreMapping = {
   1: 'Personal Growth',
   2: 'True Crime and Investigative Journalism',
@@ -30,12 +28,13 @@ const genreMapping = {
   8: 'News',
   9: 'Kids and Family',
 };
+
 function App() {
-  const [preview, setPreview] = useState([]); //Used the useState to control the app's behavior
+  const [preview, setPreview] = useState([]); //Declared the useState to control the app's behavior
   const [sortedPreview, setSortedPreview] = useState([...preview]);
   const [filteredPreview, setFilteredPreview] = useState([...preview]);
+  const [setSearching] = useState(false);
   const [, setLoading] = useState(true)
-  // const [searching, setSearching] = useState(false);
   const [idStore, setIdStore] = useState(null);
   const [throwSignUp, setThrowSignUp] = useState('signUpPhase')
   const [selectedGenre, setSelectedGenre] = useState('');
@@ -44,10 +43,11 @@ function App() {
     AudioFile: null
   })
 
-  function seasonIdFunction(id) {
+  function seasonIdFunction(id) { //function to set 'idStore' and 'throwSignUp
     setIdStore(id)
     setThrowSignUp(`seasonPhase`)
   }
+
   // SUPABASE 
   //Sets up event listeners using the Supabase client's onAuthStateChange to track user authentication status.
   //When a user successfully signs in, the code logs their email to the console, updates the app's phase
@@ -93,14 +93,14 @@ function App() {
       })
 
   }, [throwSignUp]);
-
+  //This variable calculates a filtered array of podcast show components based on the selected genre.
   const genreFilteredFeature = selectedGenre
     ? preview.filter((item) =>
       item.props.genres.includes(genreMapping[selectedGenre])
     )
     : preview;
 
-  /*This code defines the SortBy component, which provides a dropdown for sorting the show previews based on different criteria (title, date).
+  /*This code defines the sorting function, which provides a dropdown for sorting the show previews based on different criteria (title, date).
   Used the useState hook to manage the sorting order state and Calls the provided onSort function when the user selects a sorting option. */
   const handleSort = (sortOrder) => {
     const sorted = [...preview].sort((a, b) => {
@@ -125,15 +125,9 @@ function App() {
     setFilteredPreview(sorted);
     setPreview(sorted)
   };
-  // const handleFilter = (filterValue) => {
-  //   const filtered = preview.filter((item) =>
-  //     item.props.titles.toLowerCase().includes(filterValue.toLowerCase())
-  //   );
-  //   setFilteredPreview(filtered);
-  //   setSortedPreview(filtered);
-  // };
 
- // Search-bar
+  // Search-bar
+  //This code defines a function handleSearch which takes a searchTerm as an argument. It is likely used to filter the podcast show previews based on the provided search term.
   const handleSearch = (searchTerm) => {
     const filteredData = preview.filter(datamapping =>
       datamapping.props.titles.toLowerCase().includes(searchTerm.toLowerCase())
@@ -141,16 +135,16 @@ function App() {
     setPreview(filteredData);
     setSearching(true);
   };
-
+  //back to the preview phase from the season phase
   function HandleBackButton() {
     if (throwSignUp === 'seasonPhase') {
       setThrowSignUp('PreviewPhase')
     }
   }
-
+  //This code start by fetching the data then it takes an event object as a parameter. It extracts the title and audio properties from the clicked element and inserts them into the 'history' table.
   const [historyStore, setHistoryStore] = useState(null)
   useEffect(() => {
-    const fetchHistoty = async () => {
+    const fetchHistoty = async () => { //Fetchig history from the favourites table with supabase
       const { data, error } = await Supabase
         .from('history')
         .select()
@@ -167,7 +161,7 @@ function App() {
 
   const [favs, setfavs] = useState(null)
   useEffect(() => {
-    const fetchFavs = async () => {
+    const fetchFavs = async () => { // Fetch data from the 'favourites' table using Supabase
       const { data, error } = await Supabase
         .from('favourites')
         .select()
@@ -179,9 +173,9 @@ function App() {
         setfavs(data)
       }
     }
-    fetchFavs()
+    fetchFavs() //If the fetching is successful, the fetched data is stored in the favs state variable.
   }, [])
-
+  //The function is designed to be triggered when a podcast episode is clicked or marked as played.
   async function history(event) {
     const title = event.target.id
     const audio = event.target.value
@@ -213,11 +207,11 @@ function App() {
   function handleChange(id) {
     setSelectedGenre(id)
   }
-  const handleGoBackToHomePage = () => {
-    const homepageURL = 'http://localhost:5174/';
-    // Navigate to the homepage
-    window.location.href = homepageURL;
-  };
+  // const handleGoBackToHomePage = () => {
+  //   const homepageURL = 'http://localhost:5174/';
+  //   // Navigate to the homepage
+  //   window.location.href = homepageURL;
+  // };
 
   return ( /*If throwSignUp is 'signUpPhase', the Supaclient component is rendered.
   If throwSignUp is 'PreviewPhase', the main app content is rendered */
@@ -240,7 +234,8 @@ function App() {
             <div className='filter-sort'>
               <SortBy items={preview} onSort={handleSort} />
               {/* <FilterBy items={preview} onFilter={handleFilter} /> */}
-               <SearchBar onSearch={handleSearch} /> 
+              <SearchBar onSearch={handleSearch} />
+
               <div className="Card-Box">
                 <h3>Filter by Genre:</h3>
                 {Object.entries(genreMapping).map(([genreId, genreTitle]) => (
@@ -248,7 +243,7 @@ function App() {
                   <button className='filter-button'
                     key={genreId}
                     onClick={() => handleChange(parseInt(genreId))}
-                   
+
                   >
                     {genreTitle}
                   </button>
@@ -260,8 +255,8 @@ function App() {
               <Home />  {/*This part of the code closes the conditional rendering block started earlier.*/}
             </div>
           </div>
-            <ShowCarousel preview={preview} />
-            
+          <ShowCarousel preview={preview} />
+
           <Grid container spacing={5}>
             {genreFilteredFeature.map((item) => (item))}
           </Grid>
@@ -269,10 +264,10 @@ function App() {
           <Footer />
 
         </>
-        
+
       }
       {(historyStore && throwSignUp === 'HistoryPhase') && (
-
+        //If historyStore is not null and throwSignUp is 'HistoryPhase', it renders a section displaying the user's listening history and has a backToPreview button
         <div className="history">
           <button onClick={() => setThrowSignUp('PreviewPhase')}>BackToPreview</button>
           <h3>History</h3>
@@ -286,7 +281,10 @@ function App() {
           ))}
         </div>
       )}
+
       {(favs && throwSignUp === 'FavouritesPahse') && (
+        //If favs is not null and throwSignUp is 'FavouritesPahse', it renders a section displaying the user's favorite episode and has a backToPreview button.
+
         <div className="favs">
           <button onClick={() => setThrowSignUp('PreviewPhase')}>BackToPreview</button>
           <h3>favourites</h3>
@@ -303,6 +301,8 @@ function App() {
       )}
 
       {(playableAudio.AudioTitle && throwSignUp !== 'signUpPhase') &&
+        /*If playableAudio.AudioTitle is not null and throwSignUp is not 'signUpPhase', it renders a section with the audio player controls, 
+        the title of the episode being played, and a "Close" button.*/
         <div className='audioControl'>
           <p>{playableAudio.AudioTitle}</p>
           <audio src={playableAudio.AudioFile} controls autoPlay />

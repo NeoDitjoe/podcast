@@ -1,4 +1,6 @@
-// SortBy.jsx
+/*this component creates a dropdown menu that allows users to select a sorting order for items.
+When the user selects an option, the onSort prop function is called with the selected sorting order.
+This component provides a reusable way to incorporate sorting functionality into different parts of a React application.*/
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,6 @@
+/*this component provides a responsive carousel that displays show previews with images.
+The number of visible previews changes based on screen width, and navigation dots are included for easy navigation.
+The component is meant to be used as a way to showcase possible shows of interest to the user.*/ 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

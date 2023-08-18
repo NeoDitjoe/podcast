@@ -1,3 +1,5 @@
+/*this code creates a footer section that includes a form for user registration and newsletter subscription.
+It maintains the form data in the component's state and handles form submissions and changes in user input using React's state management features.*/
 import React from "react";
 
 export default function Footer() {

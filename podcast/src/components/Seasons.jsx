@@ -1,4 +1,7 @@
 /* eslint-disable react/prop-types */
+/*this code defines a React component that fetches and displays podcast season and episode information.
+It allows users to navigate between seasons and episodes, play episodes, and add them to their favorites.
+It also utilizes the Supabase library to interact with a database for adding favorite episodes.*/
 import { useEffect, useState } from 'react'
 import { Supabase } from './SupabaseClient'
 

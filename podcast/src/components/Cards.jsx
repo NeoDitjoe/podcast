@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-/*the Cards component represents a card for a podcast show, allowing users to toggle between a truncated and
- full description using a "Read More" button. It's designed to display various show details in a visually appealing format. */
+/*the Cards component is designed to display podcast show information in a card format.
+ It allows users to toggle between a less and full description using a "Read More" button.
+ Material-UI components and PropTypes validation are used to enhance the component's functionality and ensure data integrity. */
 import React from "react";
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -14,8 +15,6 @@ export default function Cards(props) {
         setShowFullDescription(!showAllDescription);
     };
 
-    
-//NEW CODE ADDED FOR EPISODES
     return (
         
         <Grid item xs={12} sm={4} md={4} lg={3} className="card-items" >
@@ -32,7 +31,6 @@ export default function Cards(props) {
             ) : (
                 <h5 className='text-color'>{props.descriptions.substring(0, 70)}</h5>
             )}
-
 
             <Button variant="outlined" onClick={toggleReadMore}>
                 {showAllDescription ? 'Read Less' : 'Read More'}

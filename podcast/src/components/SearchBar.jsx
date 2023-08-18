@@ -1,20 +1,8 @@
 /* eslint-disable react/prop-types */
-
+/*This SearchBar component provides a basic search input field and button, allowing users to search for 
+content by typing a search term and clicking the "Search" button. It utilizes React's state management to
+handle the user input and search action. */
 import '../App.css';
-
-// const SearchBar = () => {
-//   return (
-//     <div className='SearchButton'>
-//       <input type="text" placeholder="Search" className='search-input' />
-//       <button className='search-button'>Search</button>
-      
-//     </div>
-//   );
-// };
-
-// export default SearchBar;
-{/* <FilterBy items={preview} onFilter={handleFilter} /> */}
-
 import { useState } from 'react';
 
 function SearchBar({ onSearch }) {
@@ -50,3 +38,19 @@ function SearchBar({ onSearch }) {
   
 }
 export default SearchBar;
+
+
+
+
+// const SearchBar = () => {
+//   return (
+//     <div className='SearchButton'>
+//       <input type="text" placeholder="Search" className='search-input' />
+//       <button className='search-button'>Search</button>
+      
+//     </div>
+//   );
+// };
+
+// export default SearchBar;
+{/* <FilterBy items={preview} onFilter={handleFilter} /> */}
